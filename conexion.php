@@ -1,8 +1,8 @@
 <?php
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "sistema_encuestasv1";
 
 // Creamos la conexión
@@ -11,7 +11,7 @@ mysqli_set_charset($con,"utf8");
 
 // Verificamos la conexión
 if ($con->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Conexión fallida: " . $con->connect_error);
 } else {
 	// echo "Conexión exitosa";
 }
