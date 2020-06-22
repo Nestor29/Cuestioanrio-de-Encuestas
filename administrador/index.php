@@ -1,6 +1,5 @@
 <?php 
 
-  date_default_timezone_set("America/Lima");
   $date = new DateTime();
 
   $fecha_inicio = $date->format('Y-m-d H:i:s');

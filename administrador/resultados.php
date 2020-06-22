@@ -5,9 +5,10 @@
 
 	/* Consulta para extraer título y descripción de la encuesta*/
 	$query3 = "SELECT * FROM encuestas WHERE id_encuesta = '$id_encuesta'";
-	$resultados3 = $con->query($query3);
-	$row3 = $resultados3->fetch_assoc();
+	$resultados3 = $con->query($query3) or die($con->error);
 
+	$row3 = $resultados3->fetch_assoc();
+	//echo json_encode($row3);
  ?>
 
 <!DOCTYPE html>
@@ -72,60 +73,67 @@
 	<hr/>
 
 	<?php
+		$i = 1; 
 		while ($row2 = $resultados2->fetch_assoc()) {
 		
 		$id_pregunta = $row2['id_pregunta'];
 
-		$query = "SELECT preguntas.id_pregunta, preguntas.titulo,COUNT('preguntas.titulo') as count, opciones.valor, opciones.puntos FROM opciones INNER JOIN preguntas ON opciones.id_pregunta=preguntas.id_pregunta INNER JOIN resultados ON opciones.id_opcion=resultados.id_opcion WHERE preguntas.id_pregunta = '$id_pregunta' GROUP BY opciones.valor ORDER BY preguntas.id_pregunta";
-		$resultados = $con->query($query);
-
-				/*TITULO*/
+		/*TITULO*/
 		echo "<h3>" . $row2['titulo'] . "</h3>";
 
 		$cantidades = array();
 		$titulos = array();
-		$tamano = array(); 
-		$i = 1;
-		while ($row = $resultados->fetch_assoc()) {
-			$cantidades[$i] = 0;
-			$cantidades[$i] = $row['count'];
-			$titulos[$i] = $row['valor'];
-			$i++;
-		}
-
-		$opciones = $i - 1;
-		for ($i = 1; $i <= $opciones; $i++) {
+		$tamano = array();
+		
+				
+		$query = "SELECT preguntas.id_pregunta, preguntas.titulo,
+			/*COUNT('preguntas.titulo') as count,*/ opciones.valor, opciones.puntos 
+			FROM opciones 
+			INNER JOIN preguntas ON opciones.id_pregunta=preguntas.id_pregunta 
+			INNER JOIN resultados ON opciones.id_opcion=resultados.id_opcion 
+			WHERE preguntas.id_pregunta = '$id_pregunta' 
+			/*GROUP BY opciones.valor */
+			ORDER BY preguntas.id_pregunta";
+		//echo $query;
+		$resultados = $con->query($query);
+		$row = $resultados->fetch_assoc();
+		//var_dump($row);
+		/*if($resultados = $con->query($query)){
+			while ($row = $resultados->fetch_assoc()) {
+				$cantidades[$i] = 0;
+				$cantidades = $row['puntos'];
+				$titulos = $row['valor'];
+				
+			$opciones = $i - 1;
+			//for ($i = 1; $i <= $opciones; $i++) {*/
 
 		?>
 
-		<input type="hidden" class="<?php echo "valor$i" ?>" value="<?php echo $cantidades[$i] ?>">
-		<input type="hidden" class="<?php echo "titulo$i" ?>" value="<?php echo $titulos[$i] ?>">
+			
 
-		<?php  
-		}/*95*/
-
-		 ?>
-
-		<input type="hidden" class="tamano" value="<?php echo $puntos ?>">
+		<?php 
+		/*$i++;
+			} 
+		}*/
+		?>
+		<input type="hidden" class="<?php echo "valor$i" ?>" value="<?php echo $row['id_pregunta'] ?>">
+		<input type="hidden" class="<?php echo "titulo$i" ?>" value="<?php echo $row['valor'] ?>">
+		<input type="hidden" class="<?php echo "tamano$i" ?>" value="<?php echo $row['puntos'] ?>">
+		<input type="hidden" class="<?php echo "diferencia$i" ?>" value="<?php echo 100-$row['puntos'] ?>">
 
 		<div class="container" style="width: 50%; margin: 0 auto; width: 400px;">		
-			<canvas class="oilChart" width="600" height="400"></canvas>
+			<canvas class="oilChart<?php echo $i ?>" width="600" height="400"></canvas>
 		</div>
 
-		<script src="js/Chart.min.js"></script>
-
-		<hr/>
-
-		<script src="js/resultados.js">
-
-		</script>
+		
 
 
 	<?php
-
+		$i++;
 
 	}
   	 ?>
+
 	<div class="container text-center" style="margin-bottom: 20px">
 		<a href="reporte.php" class="btn btn-primary" target="_blank">GENERAR REPORTE</a>
 		<!--
@@ -140,5 +148,9 @@
   	<script src="../js/jquery-3.3.1.min.js"></script>
   	<script src="../js/popper.min.js"></script>
   	<script src="../js/bootstrap.min.js"></script>
+
+	<script src="js/Chart.min.js"></script>
+	<script src="js/graficas.js">
+	</script>
 </body>
 </html>

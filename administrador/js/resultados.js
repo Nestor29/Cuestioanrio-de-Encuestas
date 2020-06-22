@@ -3,11 +3,10 @@ var c = new Array();
 
 for (var x = 0; x < 10; x++) {
 
-					//console.log (document.getElementsByClassName("tamano"));
+				if (document.getElementsByClassName("tamano"+x))
+				console.log (document.getElementsByClassName("tamano"+x));
 
-
-				if (document.getElementsByClassName("tamano")[x])
-				{c[x] = document.getElementsByClassName("tamano")[x].value;}
+				{c[x] = document.getElementsByClassName("tamano"+x).value;}
 					
 					
 					
@@ -15,17 +14,17 @@ for (var x = 0; x < 10; x++) {
 					
 				if (c[x] == 3) {
 			
-					var valor1 = document.getElementsByClassName("valor1")[x].value;
-					var valor2 = document.getElementsByClassName("valor2")[x].value;
-					//var valor3 = document.getElementsByClassName("valor3")[x].value;
+					var valor1 = document.getElementsByClassName("valor1").value;
+					var valor2 = document.getElementsByClassName("valor2").value;
+					//var valor3 = document.getElementsByClassName("valor3").value;
 					
-					var valor3 = document.getElementsByClassName("valor3")[x] ? document.getElementsByClassName("valor3")[x].value : "";
+					var valor3 = document.getElementsByClassName("valor3")[x] ? document.getElementsByClassName("valor3").value : "";
 					
 
-					var titulo1 = document.getElementsByClassName("titulo1")[x].value;
-					var titulo2 = document.getElementsByClassName("titulo2")[x].value;
-					//var titulo3 = document.getElementsByClassName("titulo3")[x].value;
-					var titulo3 = document.getElementsByClassName("titulo3")[x] ? document.getElementsByClassName("titulo3")[x].value : "";
+					var titulo1 = document.getElementsByClassName("titulo1").value;
+					var titulo2 = document.getElementsByClassName("titulo2").value;
+					//var titulo3 = document.getElementsByClassName("titulo3").value;
+					var titulo3 = document.getElementsByClassName("titulo3")[x] ? document.getElementsByClassName("titulo3").value : "";
 					
 
 					var oilCanvas = document.getElementsByClassName("oilChart")[x];
@@ -57,24 +56,24 @@ for (var x = 0; x < 10; x++) {
 			    
 				} else if (c[x] == 4) {
 
-					var valor1 = document.getElementsByClassName("valor1")[x].value;
-					var valor2 = document.getElementsByClassName("valor2")[x].value;
-					//var valor3 = document.getElementsByClassName("valor3")[x].value;
+					var valor1 = document.getElementsByClassName("valor1").value;
+					var valor2 = document.getElementsByClassName("valor2").value;
+					//var valor3 = document.getElementsByClassName("valor3").value;
 					
-					var valor3 = document.getElementsByClassName("valor3")[x] ? document.getElementsByClassName("valor3")[x].value : "";
+					var valor3 = document.getElementsByClassName("valor3")[x] ? document.getElementsByClassName("valor3").value : "";
 					
 					
-					//var valor4 = document.getElementsByClassName("valor4")[x].value;
-					var valor4 = document.getElementsByClassName("valor4")[x] ? document.getElementsByClassName("valor4")[x].value : "";
+					//var valor4 = document.getElementsByClassName("valor4").value;
+					var valor4 = document.getElementsByClassName("valor4")[x] ? document.getElementsByClassName("valor4").value : "";
 
 		
-					var titulo1 = document.getElementsByClassName("titulo1")[x].value;
-					var titulo2 = document.getElementsByClassName("titulo2")[x].value;
-					//var titulo3 = document.getElementsByClassName("titulo3")[x].value;
-					var titulo3 = document.getElementsByClassName("titulo3")[x] ? document.getElementsByClassName("titulo3")[x].value : "";
+					var titulo1 = document.getElementsByClassName("titulo1").value;
+					var titulo2 = document.getElementsByClassName("titulo2").value;
+					//var titulo3 = document.getElementsByClassName("titulo3").value;
+					var titulo3 = document.getElementsByClassName("titulo3")[x] ? document.getElementsByClassName("titulo3").value : "";
 					
-					//var titulo4 = document.getElementsByClassName("titulo4")[x].value;
-					var titulo4 = document.getElementsByClassName("titulo4")[x] ? document.getElementsByClassName("titulo4")[x].value : "";
+					//var titulo4 = document.getElementsByClassName("titulo4").value;
+					var titulo4 = document.getElementsByClassName("titulo4")[x] ? document.getElementsByClassName("titulo4").value : "";
 
 	
 					
@@ -111,18 +110,18 @@ for (var x = 0; x < 10; x++) {
 				} else if (c[x] == 5) {
 
 
-					var valor1 = document.getElementsByClassName("valor1")[x].value;
-					var valor2 = document.getElementsByClassName("valor2")[x].value;
-					var valor3 = document.getElementsByClassName("valor3")[x].value;
-					var valor4 = document.getElementsByClassName("valor4")[x].value;
-					var valor5 = document.getElementsByClassName("valor5")[x].value;
+					var valor1 = document.getElementsByClassName("valor1").value;
+					var valor2 = document.getElementsByClassName("valor2").value;
+					var valor3 = document.getElementsByClassName("valor3").value;
+					var valor4 = document.getElementsByClassName("valor4").value;
+					var valor5 = document.getElementsByClassName("valor5").value;
 
 
-					var titulo1 = document.getElementsByClassName("titulo1")[x].value;
-					var titulo2 = document.getElementsByClassName("titulo2")[x].value;
-					var titulo3 = document.getElementsByClassName("titulo3")[x].value;
-					var titulo4 = document.getElementsByClassName("titulo4")[x].value;				
-					var titulo5 = document.getElementsByClassName("titulo5")[x].value;
+					var titulo1 = document.getElementsByClassName("titulo1").value;
+					var titulo2 = document.getElementsByClassName("titulo2").value;
+					var titulo3 = document.getElementsByClassName("titulo3").value;
+					var titulo4 = document.getElementsByClassName("titulo4").value;				
+					var titulo5 = document.getElementsByClassName("titulo5").value;
 				
 					var oilCanvas = document.getElementsByClassName("oilChart")[x];
 

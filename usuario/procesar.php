@@ -1,7 +1,6 @@
 <?php
 
 	require ('../conexion.php');
-
 	$id_encuesta = $_POST['id_encuesta'];
 
 	$query10 = "SELECT * FROM encuestas WHERE id_encuesta = '$id_encuesta'";
@@ -78,9 +77,9 @@
 
 			if ($row10['estado'] == '1') {
 			 	for ($i = 1; $i <= 100; $i++) {
-
 					if (isset($_POST[$i])) {
-						$ids[$i] = $_POST[$i];
+						$partes = explode('-',$_POST[$i]);
+						$ids[$i] = $partes[0];
 
 						$id = $ids[$i];
 
@@ -89,15 +88,16 @@
 
 						if ($row2 = $resultado2->fetch_assoc()) {
 							$id_opcion = $row2['id_opcion'];
-							$query3 = "INSERT INTO resultados (id_opcion) 
-							VALUES ('$id_opcion')";
+							$id_pregunta = $row2['id_pregunta'];
+							$query3 = "INSERT INTO resultados (id_usuario, id_encuesta,id_pregunta,id_opcion,puntos) 
+							VALUES ('$id_usuario', '$id_encuesta', '$id_pregunta','$id_opcion','$partes[1]')";
 							$resultado3 = $con->query($query3);
 							if ($resultado3) {
 								echo "Resultado ingresado";
 								echo "<br/>";
 							} else { 
 								echo "Error al ingresar resultado";
-							} 
+							}
 						}
 					}
 				}

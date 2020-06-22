@@ -81,7 +81,7 @@
 
 			$id = $row2['id_pregunta'];
 
-			$query = "SELECT preguntas.id_pregunta, preguntas.titulo, preguntas.id_tipo_pregunta, opciones.id_opcion, opciones.valor
+			$query = "SELECT preguntas.id_pregunta, preguntas.titulo, preguntas.id_tipo_pregunta, opciones.id_opcion, opciones.valor, opciones.puntos
 				FROM opciones
 				INNER JOIN preguntas
 				ON preguntas.id_pregunta = opciones.id_pregunta
@@ -99,8 +99,8 @@
 
 		 ?>
 			<div class="radio">
-		      <label><input class="form-check-input" type="radio" name="<?php echo $row['id_pregunta'] ?>" value="<?php echo $row['id_opcion'] ?>" required> <?php echo $row['valor'] ?></label>
-		    </div>
+		      <label><input class="form-check-input" type="radio" name="<?php echo $row['id_pregunta'] ?>" value="<?php echo $row['id_opcion']."-".$row['puntos']?>" required> <?php echo $row['valor'] ?></label>
+			</div>
 
 		
 		<?php 	
