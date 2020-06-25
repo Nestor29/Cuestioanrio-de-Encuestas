@@ -18,7 +18,7 @@ $data = '
             </tr>
         </thead>';
 
-$query = "SELECT * FROM encuestas ORDER BY id_encuesta DESC";
+$query = "SELECT * FROM encuestas ORDER BY id_encuesta ASC";
 $resultado = $con->query($query);
 
 while ($row = $resultado->fetch_assoc()) {
