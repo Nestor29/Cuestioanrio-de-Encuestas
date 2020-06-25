@@ -111,7 +111,7 @@
 		 	</div>
 		<br/>
 		<input type="hidden" name="id_encuesta" value="<?php echo $id_encuesta ?>">
-		<input class="btn btn-primary" type="submit" value="Responder">
+		<input  class="btn btn-primary" type="submit" value="Responder">
 		</form>
 
 

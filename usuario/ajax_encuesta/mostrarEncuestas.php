@@ -1,3 +1,4 @@
+
 <?php
 
 // Incluimos el archivo de conexión a base de datos
@@ -33,7 +34,7 @@ while ($row = $resultado->fetch_assoc()) {
                 <td>' . $row["descripcion"] . '</td>
                 <td>' . $row["fecha_final"] . '</td>
                 <td>
-                    <a class="btn btn-primary" href="responder.php?id_encuesta=' . $row['id_encuesta'] . '">Responder</a>
+                    <a class="btn btn-primary" onClick="desactivaBoton(this.id)" href="responder.php?id_encuesta=' . $row['id_encuesta'] . '">Responderr</a>
                 </td>
             </tr>
         </tbody>';

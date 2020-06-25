@@ -67,12 +67,17 @@
 	<div class="container" style="margin-top: 30px;">
 	    <div class="row">
 	        <div class="col-md-12 row">
-	        	<div class="col-md-10 col-xs-12">
+	        	<div class="col-md-6 col-xs-12">
 	        		<h3>Diagnóstico del estatus de tu negocio</h3>
 	        	</div>
 	        	<div class="col-md-2 col-xs-12">
 	        		 <button class="float-right btn btn-primary" id="boton_agregar">
 	                    Agregar Encuesta
+	                </button> <br>
+					</div>
+				<div class="col-md-2 col-xs-12">	
+					 <button class="float-right btn btn-primary" id="">
+	                    Reporte general
 	                </button>
 	        	</div>
 	        </div>
