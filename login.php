@@ -1,6 +1,6 @@
 <?php
   session_start();   // Necesitamos una sesion
-  if(isset($_SESSION['u_usuario'])){  // comparamos si existe
+  if(isset($_SESSION['id_usuario'])){  // comparamos si existe
     header("Location: validacion.php"); // si existe, lo redireccionamos a sesion.php
   }
   else{

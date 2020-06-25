@@ -1,27 +1,46 @@
-var c = new Array();
+var charts = document.getElementsByClassName("chart");
 
-for (var x = 1; x < 11; x++) {
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
 
-    if (document.getElementsByClassName("tamano" + x) && document.getElementsByClassName("titulo" + x)) {
+var titulos = new Array();
+var datos = new Array();
 
-        var valor1 = parseInt(document.getElementsByClassName("tamano" + x)[0].value);
-        var valor2 = parseInt(document.getElementsByClassName("diferencia" + x)[0].value);
-        //console.log(valor);
-        var titulo = document.getElementsByClassName("titulo" + x)[0].value;
-        //console.log(titulo);
-        var oilCanvas = document.getElementsByClassName("oilChart" + x);
+for (var numcharts = 1; numcharts <= charts.length; numcharts++) {
+
+    if (document.getElementsByClassName("tamano" + numcharts) && document.getElementsByClassName("titulo" + numcharts)) {
+
+        var alldatos = document.getElementsByClassName("tamano" + numcharts);
+        var alltitulos = document.getElementsByClassName("titulo" + numcharts);
+       
+        for (var dato = 0; dato < alldatos.length; dato++) {
+            datos.push(alldatos[dato].value);
+            titulos.push(alltitulos[dato].value);
+        }
+      
+        var oilCanvas = document.getElementsByClassName("oilChart" + numcharts);
 
         Chart.defaults.global.defaultFontFamily = "Lato";
         Chart.defaults.global.defaultFontSize = 18;
 
         var oilData = {
-            labels: [
-                titulo
-            ],
+            labels: titulos,
             datasets: [{
-                data: [valor1, valor2],
-                backgroundColor: [
-                    "deepskyblue"
+                data: datos,
+                backgroundColor:[
+                    window.chartColors.red, 
+                    window.chartColors.orange, 
+                    window.chartColors.yellow, 
+                    window.chartColors.green, 
+                    window.chartColors.blue,
+                    window.chartColors.purple
                 ]
             }]
         };
@@ -30,6 +49,8 @@ for (var x = 1; x < 11; x++) {
             type: 'pie',
             data: oilData
         });
-
+        datos = [];
+        titulos = [];
     }
+    
 }

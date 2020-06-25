@@ -66,21 +66,26 @@
 	<!-- Content Section -->
 	<div class="container" style="margin-top: 30px;">
 	    <div class="row">
-	        <div class="col-md-12 row">
-	        	<div class="col-md-10 col-xs-12">
-	        		<h3>Diagnóstico del estatus de tu negocio</h3>
+	        	<div class="col-10 col-md-10 col-xs-12">
+	        		<h3>Diagnóstico del estatus de tu negocio</h3><br>
 	        	</div>
-	        	<div class="col-md-2 col-xs-12">
-	        		 <button class="float-right btn btn-primary" id="boton_agregar">
-	                    Agregar Encuesta
-	                </button>
+            <div class="col-2 col-md-2 col-xs-12">
+              <a class="btn btn-primary" id="boton_reporte" href="reporte-general.php">
+	              Reportes
+              </a>
 	        	</div>
-	        </div>
 	    </div>
 	    <hr/>
 	    <div class="row">
-	        <div class="col-md-12">
+          <div class="col-10 col-md-10">
 	            <h4>Encuestas:</h4>
+          </div>
+          <div class="col-2 col-md-2">
+            <button type="button" class="btn btn-sm btn-primary" id="boton_agregar"> Agregar Encuesta </button>
+          </div>
+      </div>
+      <div class="row">
+	        <div class="col-md-12">
 	            <div class="table-responsive">
 	            	<div id="tabla_encuestas"></div>
 	            </div>
