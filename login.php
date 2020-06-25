@@ -1,12 +1,12 @@
 <?php
   session_start();   // Necesitamos una sesion
-  if(isset($SESSION['u_usuario'])){  // comparamos si existe
+  if(isset($_SESSION['id_usuario'])){  // comparamos si existe
     header("Location: validacion.php"); // si existe, lo redireccionamos a sesion.php
   }
   else{
     session_destroy();  // si no existe, destruimos sesion
   }
-?>﻿
+?>
 
 
 <!DOCTYPE html>

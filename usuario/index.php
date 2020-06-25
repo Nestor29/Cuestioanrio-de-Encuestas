@@ -66,8 +66,12 @@
 	<div class="container" style="margin-top: 30px;">
 	    <div class="row">
 	        <div class="col-md-12 row">
-	        	<div class="col-md-12 col-xs-12">
+	        	<div class="col-md-10 col-xs-12">
 	        		<h3>SISTEMA DE ENCUESTAS</h3>
+	        	</div>
+
+            <div class="col-md-2 col-xs-12">
+              <a class="btn btn-primary" href="resultados.php?id_resultado=<?php echo $_SESSION['id_usuario'] ?>">Resultados</a>
 	        	</div>
 	        </div>
 	    </div>

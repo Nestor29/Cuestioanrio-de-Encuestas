@@ -80,12 +80,18 @@
 	                    Reporte general
 	                </button>
 	        	</div>
-	        </div>
 	    </div>
 	    <hr/>
 	    <div class="row">
-	        <div class="col-md-12">
+          <div class="col-10 col-md-10">
 	            <h4>Encuestas:</h4>
+          </div>
+          <div class="col-2 col-md-2">
+            <button type="button" class="btn btn-sm btn-primary" id="boton_agregar"> Agregar Encuesta </button>
+          </div>
+      </div>
+      <div class="row">
+	        <div class="col-md-12">
 	            <div class="table-responsive">
 	            	<div id="tabla_encuestas"></div>
 	            </div>

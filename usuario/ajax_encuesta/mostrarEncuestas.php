@@ -1,5 +1,6 @@
 
 <?php
+session_start();   // Necesitamos una sesion
 
 // Incluimos el archivo de conexión a base de datos
 include ("../../conexion.php");
@@ -27,6 +28,11 @@ $data = '
         </thead>';
 
 while ($row = $resultado->fetch_assoc()) {
+    $query = "SELECT * FROM resultados WHERE id_usuario = '". $_SESSION['id_usuario'] ."' AND id_encuesta = '".$row['id_encuesta']."' limit 1 ";
+    $res = $con->query($query);
+    $encontrado = $res->num_rows;  
+    
+    $showBoton = $encontrado >= 1 ? 'Terminada' : '<a class="btn btn-primary" href="responder.php?id_encuesta=' . $row['id_encuesta'] . '">Responder</a>';
     $data .= '
         <tbody>
             <tr>
